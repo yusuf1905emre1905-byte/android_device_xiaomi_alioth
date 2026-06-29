@@ -1,6 +1,6 @@
 #!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
-# SPDX-FileCopyrightText: 2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2026 The StaticOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -33,7 +33,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libpiex_shim.so'),
     'vendor/lib64/hw/camera.qcom.so': blob_fixup()
         .binary_regex_replace(
-            b'\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x65\x2E\x6C\x69\x63',
+            b'\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x73\x2E\x6C\x69\x63',
             b'\x63\x61\x6D\x65\x72\x61\x5F\x63\x6E\x66\x2E\x74\x78\x74',
         ),
     (
@@ -81,3 +81,4 @@ module = ExtractUtilsModule(
 if __name__ == '__main__':
     utils = ExtractUtils.device_with_common(module, 'sm8250-common', module.vendor)
     utils.run()
+    
